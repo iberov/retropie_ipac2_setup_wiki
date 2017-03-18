@@ -190,10 +190,10 @@ You can access the file system in two ways:
 - If you have a Windows PC you can access it through your home network. Connect the Raspberry Pi to the router. It should appear in your Network
 
 Browse to this directory : `/opt/retropie/configs/`
-It contains an individual folder for each emulator and one for the Global Settings. The folder name for the Global Settings is called "All"
+It contains an individual directory for each emulator and one for the Global Settings. The directory name for the Global Settings is called "All"
 
-Copy this folder along with the folders of the emulators you plan to use.
-In my case I copied 8 additional folders for the emulators I listed in Step 1.
+Copy this directory along with the directories of the emulators you plan to use.
+In my case I copied 8 additional directories for the emulators I listed in Step 1.
 
 ### (I) GLobal Settings Configuration
 
