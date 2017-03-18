@@ -35,9 +35,9 @@ I have also seen some people doing additional customization to their arcades by 
 
 Now that I knew I need a 20 button set I started looking for a good button layout which I can use and I picked this one:
 
-IMAGE
+![Image of Button layout](images/01-Button-Layout.jpg)
 
-(You can find other button layouts available here : [http://www.slagcoin.com/joystick/layout.html](http://www.slagcoin.com/joystick/layout.html) )
+(You can find other button layouts available here: [http://www.slagcoin.com/joystick/layout.html](http://www.slagcoin.com/joystick/layout.html) )
 
 Before actually buying the buttons I put a lot of thought about what color buttons I want to install on the arcade. I see on internet that a lot of people are using randomly colored buttons, which I find very impractical. I wanted the mapping to be intuitive and easy to understand so I specifically decided to order buttons colored in the Super Nintendo color scheme. My reasoning is this:
 
@@ -51,7 +51,7 @@ The controller set I ended up buying included pretty much most of what I needed:
 
 The only difference is that I contacted the seller and specifically asked for these button colors: 2x Yellow, 2x Blue, 2x Red, 2x Green, 2x White, 8x Black, 2x White Player start buttons, 2 x Balltop joysticks (Red)
 
-The rest of the hardware should be familiar to you all: Raspberry Pi 3, Power supply , SD Card, Monitor, Speakers and one peculiarity : USB Dual Extension cable ([https://goo.gl/9PvyJR](https://goo.gl/9PvyJR))
+The rest of the hardware should be familiar to you all: Raspberry Pi 3, Power supply, SD Card, Monitor, Speakers and one peculiarity: USB Dual Extension cable ([https://goo.gl/9PvyJR](https://goo.gl/9PvyJR))
 
 I will briefly tell you what was this about as I have not seen anyone else use it. This thing is totally optional, you don’t need to make it if you don't want to.
 When the Arcade is finished you will end up using only one of the USB port of the PI. When you close the cabinet you won't be able to access it easily. Not without an extension cable. I made a discrete hole on the lower side of the control panel and installed the USB ports there. Through them I can add more roms to the SD card and plug in two additional xbox controllers for some sweet 4 player arcade gaming.
@@ -63,14 +63,14 @@ Now that I knew how many buttons would I use and which consoles I'm going to emu
 
 First of all I wrote down which buttons I plan to use for each console. Later when everything was wired I had time to do some testing and rearrange some buttons. These are the control schemes I decided to program for each emulator.
 
-IMAGE
+![Image of Game platform configurations](images/02-Game-Platform-Configurations.jpg)
 
 This is what the instruction manual for my arcade looks like. It is glued on the cabinet, just over the screen. I think it's descriptive enough.
 
 And this is how the control panel looks like.I placed additional hint icons beside each button.
 I had gone through a lot of testing later on and I can recommend this mapping to anyone.
 
-IMAGE
+![Image of Button panel design](images/03-Button-Panel-Design.jpg)
 
 As you can see the controls for the MAME and FBA emulators are not specified as each individual game has a widely different control scheme. Because of this problem I had to do a custom remapping for certain games to fix the button position to either match their original layout (Street Fighter Series) or to make them match the commonly used layout for “Hit, Jump, Special” buttons (Metal Slug series , X-men). I will describe this later on.
 
@@ -85,7 +85,7 @@ The IPAC2 is a board which can be programmed to act as a keyboard. Keyboard butt
 
 If you are trying to replicate my button configuration it is important to wire the pins to the right buttons. This is how my buttons are wired to the IPAC2 board:
 
-IMAGE
+![Image of IPAC2 wiring](images/04-IPAC2-Wiring.jpg)
 
 I advise you to look for more information about how exactly the cables connect to the switches here [https://www.ultimarc.com/ipac2.html](https://www.ultimarc.com/ipac2.html) or in some youtube video tutorial.
 
@@ -109,11 +109,11 @@ What you have to do after you download the file is to start WinIPAC, open the `F
 
 On this image you can see which Keyboard keys are now assigned to the IPAC board and respectively to the buttons.
 
-IMAGE
+![Image of IPAC2 keyboard keys assigned](images/05-IPAC2-Keyboard-Keys-Asigned.jpg)
 
 Just to wrap it up, here is another image showing you all the keyboard keys used.
 
-IMAGE
+![Image of Keyboard keys used](images/06-Keyboard-Keys-Used.jpg)
 
 **SIDE NOTE:**
 IPAC2 can be switched to behave as a GAMEPAD controller. I have seen many discussions about how it would be easier to make everything work if you switch to that mode. The problem as I found out is this. If you switch the IPAC2 to act as a GAMEPAD RetroArch would recognize it as a single controller. You can not map two player on it. You would technically need another IPAC2 board to do that. So don’t waste your time and forget about it.
@@ -146,7 +146,7 @@ I have made a separate copy of this layout for each emulator.
 Here is an example. This is the default retroarch configuration map.
 These controls will be active in the Main Menu of the RetroPie. They will also be automatically assigned to each new emulator you decide to use beside the 8 I’m using.
 
-IMAGE
+![Image of IPAC2 Retroarch config](images/07-IPAC2-Retroarch-Config.jpg)
 
 Here is short description of what you should keep attention to in this image:
 
@@ -201,7 +201,7 @@ First we will configure the Global Settings file according to the Controller Map
 
 Here it is again:
 
-IMAGE
+![Image of IPAC2 Retroarch config](images/07-IPAC2-Retroarch-Config.jpg)
 
 Open this file with a text editor: `/opt/retropie/configs/all/retroarch.cfg`
 You will find that there is a ton of text in it. These are all instruction which can help you understand how to configure the file in basically any way possible. But we will concentrate only on a certain part of it all.
@@ -238,7 +238,7 @@ So in our case this same line will turn into:
 input_player1_a = "ctrl"
 ```
 
-IMAGE
+![Image of Example 1](images/08-Example-1.jpg)
 
 ***THIS IS IMPORTANT***
 
@@ -348,15 +348,9 @@ If I use these controls when I play Game Boy Advance game I will have to play wi
 I also want to disable all buttons I’m not using. To `“nul”` them.
 These will be L2 and R2, but not X and Y as when they switch position with L and R they will keep acting as HotKey buttons evoking Save/Load functions.
 
-Look at this image:
-
-IMAGE
-
-The change is already reflected.
-
 Take a look at the code:
 
-IMAGE
+![Image of Example 2](images/09-Example-2.jpg)
 
 Simple enough.
 These are really the basics.
