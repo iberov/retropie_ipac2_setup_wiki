@@ -109,7 +109,7 @@ Things are pretty straight forward. You have to connect the IPAC2 board to your 
 
 If you want to replicate my configuration and make it work you will have to assign specific keyboard keys to the IPAC2 pins. Fortunately, WinIPAC can export .xml configuration files, which can then be imported to other boards, thus saving you all the manual work. Here is mine configuration file:
 
-[IPAC2 Config - v4.xml](files/IPAC2 Config - v4.xml)
+[IPAC2_Config_v4.xml](files/IPAC2_Config_v4.xml)
 
 What you have to do after you download the file is to start WinIPAC, open the `File -> Import` menu and browse for the file. Open it. Then click on `File -> Force Board Reconfigure`. It is done, your board is now configured the same way as mine.
 
@@ -119,14 +119,13 @@ On this image, you can see which Keyboard keys are now assigned to the IPAC boar
 
 Just to wrap it up, here is another image showing you all the keyboard keys used.
 
-![IMAGE 06-Keyboard-Keys-Used.jpg](images/06-Keyboard-Keys-Used.jpg) 
+![IMAGE 06-Keyboard-Keys-Used.jpg](images/06-Keyboard-Keys-Used.jpg)
 
 **SIDE NOTE:**
 IPAC2 can be switched to behave as a GAMEPAD controller. I have seen many discussions about how it would be easier to make everything work if you switch to that mode. The problem as I found out is this. If you switch the IPAC2 to act as a GAMEPAD RetroArch would recognize it as a single controller. You can not map two players on it. You would technically need another IPAC2 board to do that. So don’t waste your time and forget about it.
 
 **SIDE NOTE:**
-I have to clarify that in the very beginning I started working on the working on this I 
-Stumbled on some problems with the mapping. For some reason, I eventually changed the keys used for Start and Select with different keys from the keyboard. I don’t recall what exactly was the problem for me, but in the end, everything worked out just fine.
+I have to clarify that in the very beginning I started working on the working on this I stumbled on some problems with the mapping. For some reason, I eventually changed the keys used for Start and Select with different keys from the keyboard. I don’t recall what exactly was the problem for me, but in the end, everything worked out just fine.
 
 
 **Step 6 : Planning the Button Mapping**
@@ -164,7 +163,7 @@ Here is a short description of what you should keep attention to in this image:
 
 Finally, here is an archive containing my original Illustrator File + Image exports of each control scheme I mapped.
 
-[RetroArch Configuration Map Template.zip](files/retroarch_configuration_map_template/)
+[RetroArch Configuration Map Template](files/retroarch_configuration_map_template/)
 
  Download it and look through all of the images and try to compare them. Also, don’t forget to look at the image I shared in Step 3. It will show you the same button arrangement, but without the additional information.
 
