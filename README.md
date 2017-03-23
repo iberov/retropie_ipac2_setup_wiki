@@ -1,4 +1,4 @@
-#Guide: Setting Up a RetroPie controls using IPAC2 Controller Extensive Tutorial + Preconfigured files.
+# Guide: Setting Up a RetroPie controls using IPAC2 Controller Extensive Tutorial + Preconfigured files.
 
 **Introduction**
 ---
@@ -37,7 +37,7 @@ I have also seen some people doing additional customization to their arcades by 
 
 Now that I knew I need a 20 button set I started looking for a good button layout which I can use and I picked this one:
 
-![IMAGE 01-Button-Layout.jpg](images/01-Button-Layout.jpg)
+![IMAGE](images/01-Button-Layout.jpg)
 
 (You can find other button layouts available here: http://www.slagcoin.com/joystick/layout.html)
 
@@ -68,14 +68,14 @@ Now that I knew how many buttons would I use and which consoles I'm going to emu
 
 First of all, I wrote down which buttons I plan to use for each console. Later when everything was wired I had time to do some testing and rearrange some buttons. These are the control schemes I decided to program for each emulator.
 
-![IMAGE 02-Game-Platform-Configurations.jpg](images/02-Game-Platform-Configurations.jpg)
+![IMAGE](images/02-Game-Platform-Configurations.jpg)
 
 This is what the instruction manual for my arcade looks like. It is glued on the cabinet, just to the screen. I think it's descriptive enough.
 
 And this is how the control panel looks like. I placed additional hint icons beside each button.
 I had gone through a lot of testing later on and I can recommend this mapping to anyone.
 
-![03-Button-Panel-Design.jpg](images/03-Button-Panel-Design.jpg)
+![IMAGE](images/03-Button-Panel-Design.jpg)
 
 As you can see the controls for the MAME and FBA emulators are not specified as each individual game has a widely different control scheme. Because of this problem I had to do a custom remapping for certain games to fix the button position to either match their original layout (Street Fighter Series) or to make them match the commonly used layout for “Hit, Jump, Special” buttons (Metal Slug series, X-men). I will describe this later on.
 
@@ -91,7 +91,7 @@ The IPAC2 is a board which can be programmed to act as a keyboard. Keyboard butt
 
 If you are trying to replicate my button configuration it is important to wire the pins to the right buttons. This is how my buttons are wired to the IPAC2 board:
 
-![04-IPAC2-Wiring.jpg](images/04-IPAC2-Wiring.jpg)
+![IMAGE](images/04-IPAC2-Wiring.jpg)
 
 I advise you to look for more information about how exactly the cables connect to the switches here https://www.ultimarc.com/ipac2.html or in some youtube video tutorial.
 
@@ -115,11 +115,11 @@ What you have to do after you download the file is to start WinIPAC, open the `F
 
 On this image, you can see which Keyboard keys are now assigned to the IPAC board and respectively to the buttons.
 
-![IMAGE 05-IPAC2-Keyboard-Keys-Asigned.jpg](images/05-IPAC2-Keyboard-Keys-Asigned.jpg)
+![IMAGE](images/05-IPAC2-Keyboard-Keys-Asigned.jpg)
 
 Just to wrap it up, here is another image showing you all the keyboard keys used.
 
-![IMAGE 06-Keyboard-Keys-Used.jpg](images/06-Keyboard-Keys-Used.jpg)
+![IMAGE](images/06-Keyboard-Keys-Used.jpg)
 
 **SIDE NOTE:**
 IPAC2 can be switched to behave as a GAMEPAD controller. I have seen many discussions about how it would be easier to make everything work if you switch to that mode. The problem as I found out is this. If you switch the IPAC2 to act as a GAMEPAD RetroArch would recognize it as a single controller. You can not map two players on it. You would technically need another IPAC2 board to do that. So don’t waste your time and forget about it.
@@ -146,12 +146,13 @@ While you are still inside the main menu the Global Settings apply. When you sta
 
 This is what makes things so complicated and hard to track.
 For this reason, I made myself a visual map of the button layout of each individual console and specific ROMS. The previous two images I showed you are exactly that in an early stage. It is nothing that special really. The template is made in Adobe Illustrator. It contains a set of images, showing the button layout of my arcade and inside each button, there are tree values written. These values tell you the name of the switches, the Keyboard Keys assigned to each switch and the Retroarch key values tied to the Keyboard input.
+
 I have made a separate copy of this layout for each emulator.
 
 Here is an example. This is the default retroarch configuration map.
 These controls will be active in the Main Menu of the RetroPie. They will also be automatically assigned to each new emulator you decide to use beside the 8 I’m using.
 
-![IMAGE 07-IPAC2-Retroarch-Config.jpg](images/07-IPAC2-Retroarch-Config.jpg)
+![IMAGE](images/07-IPAC2-Retroarch-Config.jpg)
 
 Here is a short description of what you should keep attention to in this image:
 * In the upper left corner, there is a title telling you for which Game Platform these controls Apply.
@@ -177,5 +178,248 @@ As you can see in the archive I myself ended up with 12 different maps for my Ar
 
 In total, I have made 28 configuration files. (.cfg)
 The number of configuration files is greater than the mapping schemes because certain game series are using a single mapping scheme, but the actual configuration file had to be duplicated several times for each individual ROM. The name of the .cfg file had to be changed to reflect the name of the ROM it should be tied to. For example, all Street Fighter Games, including the Marvel fighting games (11 in total) are using the same ROM Specific mapping, but each ROM has its own copy of this very same file.
+
+
+** Step 7. RetroArch Configuration**
+---
+
+Now the real work begins.
+Configuring the controls through RetroPie GUI system is not efficient enough, so I’m going to talk only about the manual editing of the files. I will give you an example how you can use the Mapping template to help yourself.
+
+First, you need to access the files system of the RetroPie and copy the configuration files for the systems you plan to use. It would be easier for you to edit the files on your machine rather than directly on the card. This way you can safely keep backup copies each time you make changes.
+
+You can access the files structure in two ways:
+
+If you have a PC with a Linux OS installed on it, you can access the files structure through it.
+If you have a Windows PC you can access it through your home network. Connect the Raspberry Pi to the router. It should appear in your Network
+
+Browse to this directory : `/opt/retropie/configs/`
+It contains an individual folder for each emulator and one for the Global Settings. The folder name for the Global Settings is called “All”
+
+Copy this folder along with the folders of the emulators you plan to use.
+In my case, I copied 8 additional folders for the emulators I listed in Step 1.
+
+**Step 7.1 Global Settings Configuration**
+---
+
+First, we will configure the Global Settings file according to the Controller Map I showed you before.
+Here it is again:
+
+![IMAGE](images/07-IPAC2-Retroarch-Config.jpg)
+
+Open this file with a text editor: `/opt/retropie/configs/all/retroarch.cfg`
+You will find that there is a ton of text in it. These are all instruction which can help you understand how to configure the file in basically any way possible. But we will concentrate only on a certain part of it all.
+
+Search for these lines of code:
+
+```
+input_player1_a = "x"
+input_player1_b = "z"
+input_player1_y = "a"
+input_player1_x = "s"
+input_player1_start = "enter"
+input_player1_select = "rshift"
+input_player1_l = "q"
+input_player1_r = "w"
+input_player1_left = "left"
+input_player1_right = "right"
+input_player1_up = "up"
+input_player1_down = "down"
+```
+
+These are the instructions which bind the RetroArch keys to specific Keyboard Keys.
+This line in specific:
+
+```
+input_player1_a = "x"
+```
+
+What this line is telling you is that the input for RetroArch button “A” for Player 1 is a Keyboard key “X”. What you have to do is to look at the Map image above and edit the value inside the brackets to match the Keyboard Key written above the RetroArch key for value “A”.
+
+So in our case, this same line will turn into:
+
+```
+input_player1_a = "ctrl"
+```
+
+![IMAGE](images/08-Example-1.jpg)
+
+**THIS IS IMPORTANT!**
+
+Before continuing forward you have to know that I made some tweaks to my files. For starters, the default state of the config file will include mappings for only one player. This will change after your first configuration through the GUI system.
+
+The default file will also be missing the Hotkeys configurations. For those who are wondering what the Hotkeys are it is basically this:
+Hotkeys are button combination which initiates hidden functions. Save/Load game, Exit Game and etc. There is always one specific HotKey which pressed in combination with other actives a certain function.
+
+To cut it short.
+For my files, I included all possible lines of codes applying to player controls and rearranged them in more convenient way. I also moved these lines of code to the very top of the cfg file.
+
+This is how the Global Controls values are set inside my files:
+
+```
+input_player1_select = "y"
+input_player1_start = "h"
+input_player1_left = "left"
+input_player1_right = "right"
+input_player1_up = "up"
+input_player1_down = "down"
+input_player1_a = "ctrl"
+input_player1_b = "alt"
+input_player1_x = "space"
+input_player1_y = "shift"
+input_player1_l = "z"
+input_player1_r = "x"
+input_player1_l2 = "c"
+input_player1_r2 = "v"
+# input_player1_l3 =
+# input_player1_r3 =
+
+input_player2_select = "u"
+input_player2_start = "j"
+input_player2_left = "d"
+input_player2_right = "g"
+input_player2_up = "r"
+input_player2_down = "f"
+input_player2_a = "a"
+input_player2_b = "s"
+input_player2_x = "w"
+input_player2_y = "q"
+input_player2_l = "i"
+input_player2_r = "k"
+input_player2_l2 = "o"
+input_player2_r2 = "l"
+# input_player2_l3 =
+# input_player2_r3 =
+
+#hotkeys
+input_enable_hotkey = "y"
+input_exit_emulator = "h"
+input_save_state = "x"
+input_load_state = "z"
+input_state_slot_increase = "right"
+input_state_slot_decrease = "left"
+input_menu_toggle = "nul"
+input_reset = "nul"
+```
+
+Take some time and compare them to the Map image above.
+Look at the HotKeys Enabled section on the image and you will understand what value should correspond to each hotkey.
+
+Take notice that on some of the hotkeys a value **“nul”** is written.
+This value completely disables the button function!
+
+Now that I have organized the lines of code in what I think is a more convenient way what I did next is to copy and paste them in this arrangement inside each of the System Specific configurations files.
+
+**SIDE NOTE**
+Be careful! Beside the keyboard configuration inside the config files you will find lines like this one: 
+
+```
+input_player1_a_btn =
+```
+
+The **“btn”** at the end of the line is indicating that this line of code is expecting GAMEPAD button input! If you try using it by mistake RetroArch will not detect your IPAC input, because it will expect a Game Pad button press.
+
+
+**Step 7.2 System Specific Configuration**
+---
+
+I want to give you one example of System Specific Configuration, which will demonstrate for what reason and how are the Retroarch Config Values rearranged on the button panel.
+
+For that reason, I will use the Game Boy Advance mapping as an example.
+
+Navigate to this file and open it: `/opt/retropie/configs/gba/retroarch.cfg`
+
+You will see this written in it:
+
+```
+# Settings made here will only override settings in the global retroarch.cfg if placed above the #include line
+
+input_remapping_directory = "/opt/retropie/configs/gba/"
+
+#include "/opt/retropie/configs/all/retroarch.cfg"
+```
+
+First, take notice of the input remapping directory path.
+For each system, it is different and reflects the file location.
+
+Second, take notice that because there is no Player Input commands written above the  `#include "/opt/retropie/configs/all/retroarch.cfg"` line the controls assigned to this emulator come from the Global Configuration file.
+
+To change them you will first have to paste the Player Input values from the Global Configuration file and edit them. 
+
+But before that… why edit them in the first place?
+Look again at the image from **Step 3**. Then look at the image from **Step 6**.
+
+If I use these controls when I play Game Boy Advance game I will have to play with the RED and The YELLOW buttons for A and B respectively and the top two BLACK buttons for L and R. I would prefer to assign the L and R buttons to the GREEN and BLUE buttons.
+
+I also want to disable all buttons I’m not using. To “nul” them.
+These will be **L2** and **R2**, but not **X** and **Y** as when they switch position with L and R they will keep acting as HotKey buttons evoking **Save/Load** functions.
+
+Look at the GBA Configuration Map:
+
+![IMAGE](images/09-IPAC2-gba-Config.jpg)
+
+And now compare the code:
+
+![IMAGE](images/10-Example-2.jpg)
+
+Simple enough.
+These are really the basics.
+When you are done with the file editing copy the new files over the ones in the original directory on the SD card.
+
+Before sharing my already preconfigured files I want to drop several lines about the ROM Specific configurations.
+
+*Step 7.3 ROM Specific Configuration*
+---
+
+ROM configurations work the same way.
+The difference is that you will have to create your own files for each ROM. And place it in the directory where the ROM is located. It is important that both files have the same name!
+
+The only systems for which you will find yourself doing custom Per ROM configurations are MAME and FBA basically.
+
+If you want to create a custom Per ROM configuration for Street Fighter 3 for FBA emulator you will have to create the cfg file inside this directory:
+
+`"/opt/retropie/roms/fba/"`
+
+If the name of your ROM is **“sfa3.zip”**
+The name of the configuration file would be: **“sfa3.zip.cfg”**
+
+When you create a configuration file for “Street Fighter 3” you can duplicate it several times for all your Street Fighter  ROMS. They are using the same controls after all. The only thing you will have to edit is the name of the file. It must reflect the name of the ROM!
+
+Doing a custom configurations for ROMS is a matter of testing and fixing.
+You would have to put some time and effort to clear things out.
+
+And now finally.
+Here is a zip archive containing all my configuration files.
+Examine them, use them if you like.
+
+[RETROPIE Controller Configurations](files/retropie_controller_configurations/)
+
+
+**Conclusion**
+---
+
+As I was writing all this I came to realize what a complete nightmare this whole experience has been. But please don’t get discouraged it is worth it. Just try to be focused and calm and everything will eventually be resolved.
+
+I want to express my respect to all the people involved in this project. I have no idea how are you even managing all of this.
+
+I want to also say that the mapping template is not my idea at all. I stumbled on a Reddit post which explained things quite well.
+https://www.reddit.com/r/RetroPie/comments/4a8ncv/ipac2_config_on_retropie_works_with_mame_nes_snes/
+
+ I found this to be such an ingenious way to visually represent the whole mess that I decided to replicate and expand the idea.
+
+**SIDE NOTE**
+I think now that someone with good programming skills could possibly be able to create a visual .cfg file generator based on this concept. I can imagine that in such software you would at first pick your button layout. Then you will have to enter the Keyboard Keys assigned to the buttons and in a third step pick an emulator and select the buttons you want to use. Such a software would then generate the .cfg file by substituting the Keyboard Values. Sadly I’m not a programmer, but a graphical designer. Leaving you with this thought.
+
+**List of all files included in this post:**
+---
+
+[IPAC2_Config_v4.xml](files/IPAC2_Config_v4.xml)
+[RetroArch Configuration Map Template](files/retroarch_configuration_map_template/)
+[RETROPIE Controller Configurations](files/retropie_controller_configurations/)
+
+
+
+
+
 
 
