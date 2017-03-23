@@ -180,7 +180,7 @@ In total, I have made 28 configuration files. (.cfg)
 The number of configuration files is greater than the mapping schemes because certain game series are using a single mapping scheme, but the actual configuration file had to be duplicated several times for each individual ROM. The name of the .cfg file had to be changed to reflect the name of the ROM it should be tied to. For example, all Street Fighter Games, including the Marvel fighting games (11 in total) are using the same ROM Specific mapping, but each ROM has its own copy of this very same file.
 
 
-** Step 7. RetroArch Configuration**
+**Step 7. RetroArch Configuration**
 ---
 
 Now the real work begins.
@@ -413,9 +413,9 @@ I think now that someone with good programming skills could possibly be able to 
 **List of all files included in this post:**
 ---
 
-[IPAC2_Config_v4.xml](files/IPAC2_Config_v4.xml)
-[RetroArch Configuration Map Template](files/retroarch_configuration_map_template/)
-[RETROPIE Controller Configurations](files/retropie_controller_configurations/)
+* [IPAC2_Config_v4.xml](files/IPAC2_Config_v4.xml)
+* [RetroArch Configuration Map Template](files/retroarch_configuration_map_template/)
+* [RETROPIE Controller Configurations](files/retropie_controller_configurations/)
 
 
 
