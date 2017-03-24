@@ -1,5 +1,22 @@
 # Guide: Setting Up a RetroPie controls using IPAC2 Controller Extensive Tutorial + Preconfigured files.
 
+**Index:**
+---
+* Introduction
+* Step 1: Button Layout
+* Step 2: The Hardware
+* Step 3: Deciding on Button Usage for Each Game Platform
+* Step 4: IPAC2 Button Wiring
+* Step 5: IPAC2 Configuration
+* Step 6: Planning the Button Mapping
+* Step 7: RetroArch Configuration
+* Step 7.1 : Global Settings Configuration
+* Step 7.2 : System Specific Configuration
+* Step 7.3 : ROM Specific Configuration
+* Conclusion
+* Files Included in This Post
+---
+
 **Introduction**
 ---
 
@@ -47,7 +64,7 @@ Before actually buying the buttons I put a lot of thought about what color butto
 * It would be easier to communicate the button functions to new players in a manual.
 
 
-**Step 2 : The hardware I bought**
+**Step 2 : The Hardware**
 ---
 
 The controller set I ended up buying included pretty much most of what I needed:
@@ -61,7 +78,7 @@ I will briefly tell you what was this about as I have not seen anyone else use i
 When the Arcade is finished you will end up using only one of the USB port of the PI. When you close the cabinet you won't be able to access it easily. Not without an extension cable. I made a discrete hole on the lower side of the control panel and installed the USB ports there. Through them, I can add more roms to the SD card and plug in two additional Xbox controllers for some sweet 4 player arcade gaming.
 
 
-**Step 3 : Deciding on the button usage for each game platform**
+**Step 3 : Deciding on Button Usage for Each Game Platform**
 ---
 
 Now that I knew how many buttons would I use and which consoles I'm going to emulate I started planning the mapping of the buttons for each console. It is crucial to make these decisions in the beginning and write them down in an easy to understand way if you want to keep track on what is going on while you are editing the config files for each console later on. If you don't do it you can easily get lost in the process.
@@ -80,7 +97,7 @@ I had gone through a lot of testing later on and I can recommend this mapping to
 As you can see the controls for the MAME and FBA emulators are not specified as each individual game has a widely different control scheme. Because of this problem I had to do a custom remapping for certain games to fix the button position to either match their original layout (Street Fighter Series) or to make them match the commonly used layout for “Hit, Jump, Special” buttons (Metal Slug series, X-men). I will describe this later on.
 
 
-**Step 4 : IPAC2 Button wiring**
+**Step 4 : IPAC2 Button Wiring**
 ---
 
 When the cabinet was finally built it was time to wire the button switches to the IPAC2 Controller.
@@ -170,7 +187,7 @@ Finally, here is an archive containing my original Illustrator File + Image expo
 
 In the next step, I will give you a quick recap of how you can manually change the configuration files for each game platform and will than share the files I’m using.
 
-**SIDE NOTE**
+**SIDE NOTE:**
 As you can see in the archive I myself ended up with 12 different maps for my Arcade.
 * 1 Global Mapping  - Functioning in the main menu of the retropie.
 * 8 System Specific Mappings
@@ -310,7 +327,7 @@ This value completely disables the button function!
 
 Now that I have organized the lines of code in what I think is a more convenient way what I did next is to copy and paste them in this arrangement inside each of the System Specific configurations files.
 
-**SIDE NOTE**
+**SIDE NOTE:**
 Be careful! Beside the keyboard configuration inside the config files you will find lines like this one:
 
 ```
@@ -320,11 +337,11 @@ input_player1_a_btn =
 The **“btn”** at the end of the line is indicating that this line of code is expecting GAMEPAD button input! If you try using it by mistake RetroArch will not detect your IPAC input, because it will expect a Game Pad button press.
 
 
-**SIDE NOTE**
+**SIDE NOTE:**
 Once you configure the Global Setting you might be surprised to find out that only the first player has control inside the Main Menu of RetroPie. It is supposed to work that way, so don't worry.
 
-**SIDENOTE**
-On that note. Only the first player can execute HotKey commands.
+**SIDE NOTE:**
+On that note. Only the first player would be able to execute HotKey commands (save/load game etc.). That is how it is supposed to work.
 
 
 
@@ -376,7 +393,7 @@ When you are done with the file editing copy the new files over the ones in the 
 
 Before sharing my already preconfigured files I want to drop several lines about the ROM Specific configurations.
 
-*Step 7.3 ROM Specific Configuration*
+**Step 7.3 ROM Specific Configuration**
 ---
 
 ROM configurations work the same way.
@@ -415,10 +432,10 @@ https://www.reddit.com/r/RetroPie/comments/4a8ncv/ipac2_config_on_retropie_works
 
  I found this to be such an ingenious way to visually represent the whole mess that I decided to replicate and expand the idea.
 
-**SIDE NOTE**
+**SIDE NOTE:**
 I think now that someone with good programming skills could possibly be able to create a visual .cfg file generator based on this concept. I can imagine that in such software you would at first pick your button layout. Then you will have to enter the Keyboard Keys assigned to the buttons and in a third step pick an emulator and select the buttons you want to use. Such a software would then generate the .cfg file by substituting the Keyboard Values. Sadly I’m not a programmer, but a graphical designer. Leaving you with this thought.
 
-**List of all files included in this post:**
+**Files Included in This Post:**
 ---
 
 * [IPAC2_Config_v4.xml](files/IPAC2_Config_v4.xml)
