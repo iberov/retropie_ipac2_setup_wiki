@@ -311,13 +311,21 @@ This value completely disables the button function!
 Now that I have organized the lines of code in what I think is a more convenient way what I did next is to copy and paste them in this arrangement inside each of the System Specific configurations files.
 
 **SIDE NOTE**
-Be careful! Beside the keyboard configuration inside the config files you will find lines like this one: 
+Be careful! Beside the keyboard configuration inside the config files you will find lines like this one:
 
 ```
 input_player1_a_btn =
 ```
 
 The **“btn”** at the end of the line is indicating that this line of code is expecting GAMEPAD button input! If you try using it by mistake RetroArch will not detect your IPAC input, because it will expect a Game Pad button press.
+
+
+**SIDE NOTE**
+Once you configure the Global Setting you might be surprised to find out that only the first player has control inside the Main Menu of RetroPie. It is supposed to work that way, so don't worry.
+
+**SIDENOTE**
+On that note. Only the first player can execute HotKey commands.
+
 
 
 **Step 7.2 System Specific Configuration**
