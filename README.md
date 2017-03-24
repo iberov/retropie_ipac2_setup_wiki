@@ -2,19 +2,19 @@
 
 **Index:**
 ---
-* Introduction
-* Step 1: Button Layout
-* Step 2: The Hardware
-* Step 3: Deciding on Button Usage for Each Game Platform
-* Step 4: IPAC2 Button Wiring
-* Step 5: IPAC2 Configuration
-* Step 6: Planning the Button Mapping
-* Step 7: RetroArch Configuration
-* Step 7.1 : Global Settings Configuration
-* Step 7.2 : System Specific Configuration
-* Step 7.3 : ROM Specific Configuration
-* Conclusion
-* Files Included in This Post
+* [Introduction](#introduction)
+* [Step 1: Button Layout](#step-1--button-layout)
+* [Step 2: The Hardware](#step-2--the-hardware)
+* [Step 3: Deciding on Button Usage for Each Game Platform](#step-3--deciding-on-button-usage-for-each-game-platform)
+* [Step 4: IPAC2 Button Wiring](#step-4--ipac2-button-wiring)
+* [Step 5: IPAC2 Configuration](#step-5--ipac2-configuration)
+* [Step 6: Planning the Button Mapping](#step-6--planning-the-button-mapping)
+* [Step 7: RetroArch Configuration](#step-7-retroarch-configuration)
+	* [Step 7.1 : Global Settings Configuration](#step-71-global-settings-configuration)
+	* [Step 7.2 : System Specific Configuration](#step-72-system-specific-configuration)
+	* [Step 7.3 : ROM Specific Configuration](#step-73-rom-specific-configuration)
+* [Conclusion](#conclusion)
+* [Files Included in This Post](#files-included-in-this-post)
 
 **Introduction**
 ---
