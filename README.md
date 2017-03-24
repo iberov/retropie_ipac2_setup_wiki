@@ -424,10 +424,3 @@ I think now that someone with good programming skills could possibly be able to 
 * [IPAC2_Config_v4.xml](files/IPAC2_Config_v4.xml)
 * [RetroArch Configuration Map Template](files/retroarch_configuration_map_template/)
 * [RETROPIE Controller Configurations](files/retropie_controller_configurations/)
-
-
-
-
-
-
-
