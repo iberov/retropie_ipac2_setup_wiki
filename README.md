@@ -15,7 +15,6 @@
 * Step 7.3 : ROM Specific Configuration
 * Conclusion
 * Files Included in This Post
----
 
 **Introduction**
 ---
